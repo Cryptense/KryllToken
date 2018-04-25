@@ -43,9 +43,9 @@ KRL ERC20 Smart Contract : https://etherscan.io/address/<todo>#code
 
 ### Token repartition
 
-  Max supply **Max 50000000 KRL** :
+  Total supply **49417297 KRL** :
   
-  - Sale **17737297 KRL**
+  - Sale **17737348 KRL** (token sale)
   - Team **8640000 KRL** (vested)
   - Advisors **2880000 KRL**
   - Security Reserve **4320000 KRL**
