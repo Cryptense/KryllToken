@@ -37,6 +37,7 @@ Consider also removing hard coded destination addresses to enforce `reset` funct
 
 Note : Comment for **USER_ACQUISITION** specifies 6% instead of 14%.
 
+**Update** : README file updated and KryllToken.sol fixed in (f270ebb)[https://github.com/Cryptense/KryllToken/commit/f270ebb0cbd1fee0ca5a5e4ea8f363c0048741f8]
 
 ### Sale, team, advisors, security, press_marketing, user_acquisition and bounty addresses should not be 0x0 address.
 
@@ -46,20 +47,25 @@ Or
 
 Consider replacing  `require(sale_address != 0x0);` by `require(sale_address != 0x0 && team_address != 0x0 && advisors_address != 0x0 && security_address != 0x0 && press_address != 0x0 && user_acq_address != 0 && bounty_address != 0x0);` at the beginning of the `distribute` function in KryllToken.sol
 
+**Update** : Fixed in (f270ebb)[https://github.com/Cryptense/KryllToken/commit/f270ebb0cbd1fee0ca5a5e4ea8f363c0048741f8]
+
 ### Whitelist address to bypass the transfer lock should not be 0x0 address.
 
-Consider adding `require(whitelist != 0x0);` at the beginning of the `whitelist` function in TransferableToken.sol.
+Consider adding `require(_address != 0x0);` at the beginning of the `whitelist` function in TransferableToken.sol.
 
 Consider also to implement a remove from whitelist function.
 
+**Update** : Fixed in (f270ebb)[https://github.com/Cryptense/KryllToken/commit/f270ebb0cbd1fee0ca5a5e4ea8f363c0048741f8]
 
 ## Notes & Additional Information
 
 * Consider upgrading to the latest version of Solidity (0.4.23), which comes with the last release of Truffle (4.1.7).
 The solc compiler is under active development. Downstreaming security changes will help increase overall contract security and catch outdated practices
+**Update** : Upgraded in (f270ebb)[https://github.com/Cryptense/KryllToken/commit/f270ebb0cbd1fee0ca5a5e4ea8f363c0048741f8]
 
 * Consider upgrading to the latest version of OpenZeppelin (1.8.0).
 For instance, the ERC20 standard requires the (totalSupply)[https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md] function to be explicitly defined in its public interface, which was updated since OpenZeppelin 1.6.0.
+**Update** : Upgraded in (f270ebb)[https://github.com/Cryptense/KryllToken/commit/f270ebb0cbd1fee0ca5a5e4ea8f363c0048741f8]
 
 * If you are going to distribute the sold tokens manually via transfer, keep in mind that token holders will be able to make transfers themselves during the distribution. If you wish to audit the distribution afterwards to ensure it was done correctly, look for the Transfer events instead of balances.
 
@@ -69,6 +75,7 @@ For instance, the ERC20 standard requires the (totalSupply)[https://github.com/e
     name = _name;
   }
 ```
+**Update** : Added in (f270ebb)[https://github.com/Cryptense/KryllToken/commit/f270ebb0cbd1fee0ca5a5e4ea8f363c0048741f8]
 
 * Consider to slightly reduce gas consumption during token transfer by changing modifier `canTransfert`  : 
 ```
@@ -93,12 +100,13 @@ For instance, the ERC20 standard requires the (totalSupply)[https://github.com/e
    
    //transfer() transaction cost : 51982
 ```
+**Update** : Modified in (f270ebb)[https://github.com/Cryptense/KryllToken/commit/f270ebb0cbd1fee0ca5a5e4ea8f363c0048741f8]
 
 * For token holder distribution, consider a batch function to reduce gas cost. For instance :
 ```
 function batch(address[] _data,uint256[] _amount) public onlySaleWallet {
     for (uint i = 0; i < _data.length; i++) {
-      assert(transfer(_data[i],_amount[i]));
+      transfer(_data[i],_amount[i]);
     }
 }
 ```
@@ -113,6 +121,7 @@ function batch(address[] _data,uint256[] _amount) public onlySaleWallet {
         assert.equal(toKRL(releasable), toKRL(await vesting.releasableAmount()));
     })
 ```
+**Update** : Added in (f270ebb)[https://github.com/Cryptense/KryllToken/commit/f270ebb0cbd1fee0ca5a5e4ea8f363c0048741f8]
 
 ### Conclusion
 

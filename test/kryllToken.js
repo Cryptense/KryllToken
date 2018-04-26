@@ -47,12 +47,12 @@ contract('Kryll Token', function (accounts) {
         });
 
         it('Initial Distribution status initializes correctly', async () => {
-            let transferable = await token.isInitialDistributionDone();
+            let transferable = await token.initialDistributionDone();
             assert.isFalse(transferable);
         });
 
         it('Transferable status initializes correctly', async () => {
-            let transferable = await token.isTransferable();
+            let transferable = await token.transferable();
             assert.isFalse(transferable);
         });
 
@@ -67,7 +67,7 @@ contract('Kryll Token', function (accounts) {
         
         it("Distribution config correctly", async () => {
             await token.reset( sale, team, advisors, security, press, user_acq, bounty, { from: owner});
-            assert.isFalse(await token.isInitialDistributionDone());
+            assert.isFalse(await token.initialDistributionDone());
             assert.equal(await token.sale_address(), sale);
             assert.equal(await token.team_address(), team);
             assert.equal(await token.advisors_address(), advisors);
@@ -78,9 +78,9 @@ contract('Kryll Token', function (accounts) {
         })
         
         it("Distributes correctly", async () => {
-            assert.isFalse(await token.isInitialDistributionDone());
+            assert.isFalse(await token.initialDistributionDone());
             await token.distribute({from: owner});
-            assert.isTrue(await token.isInitialDistributionDone());
+            assert.isTrue(await token.initialDistributionDone());
             assert.equal(await toNum(token.balanceOf(sale)), await toNum(token.SALE() ) );
             assert.equal(await toNum(token.balanceOf(team)), await toNum(token.TEAM()) );
             assert.equal(await toNum(token.balanceOf(advisors)), await toNum(token.ADVISORS()) );
@@ -92,14 +92,14 @@ contract('Kryll Token', function (accounts) {
           })
 
         it("Fails to change distribution config if it has occurred", async () => {
-            assert.isTrue(await token.isInitialDistributionDone());            
+            assert.isTrue(await token.initialDistributionDone());            
             return assertRevert(async () => {
                 await token.reset( sale, team, advisors, security, press, user_acq, bounty, { from: owner});
             })
         })
 
         it("Fails to redistribute if distribution it has occurred", async () => {
-            assert.isTrue(await token.isInitialDistributionDone());            
+            assert.isTrue(await token.initialDistributionDone());            
             return assertRevert(async () => {
                 await token.distribute({from: owner});
             })

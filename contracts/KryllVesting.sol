@@ -2,7 +2,7 @@
     Copyright (c) 2018 Cryptense SAS - Kryll.io
 
     Kryll.io / KRL Vesting Smart Contract
-    Version 0.1
+    Version 0.2
     
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal

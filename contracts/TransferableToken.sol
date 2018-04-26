@@ -2,7 +2,7 @@
     Copyright (c) 2018 Cryptense SAS - Kryll.io
 
     Kryll.io / Transferable ERC20 token mechanism
-    Version 0.1
+    Version 0.2
     
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -126,16 +126,7 @@ contract TransferableToken is StandardToken,Ownable {
         whitelisted[_address] = false;
     }
 
-    /**
-        OTHER FUNCTIONS
-    **/
 
-    /**
-    * @dev returns the transferable state
-    */
-    function isTransferable() public constant returns (bool) {
-        return transferable;
-    }
     /** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
     * @dev Strandard transferts overloaded API
     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **/
@@ -148,6 +139,12 @@ contract TransferableToken is StandardToken,Ownable {
         return super.transferFrom(_from, _to, _value);
     }
 
+  /**
+   * Beware that changing an allowance with this method brings the risk that someone may use both the old
+   * and the new allowance by unfortunate transaction ordering. We recommend to use use increaseApproval
+   * and decreaseApproval functions instead !
+   * https://github.com/ethereum/EIPs/issues/20#issuecomment-263555598
+   */
     function approve(address _spender, uint256 _value) public canTransfert returns (bool) {
         return super.approve(_spender, _value);
     }

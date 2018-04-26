@@ -2,7 +2,7 @@
     Copyright (c) 2018 Cryptense SAS - Kryll.io
 
     Kryll.io / KRL ERC20 Token Smart Contract    
-    Version 0.1
+    Version 0.2
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -33,7 +33,7 @@ import 'zeppelin/contracts/math/SafeMath.sol';
 
 
 contract KryllToken is TransferableToken {
-    using SafeMath for uint256;
+//    using SafeMath for uint256;
 
     string public symbol = "KRL";
     string public name = "Kryll.io Token";
@@ -56,7 +56,7 @@ contract KryllToken is TransferableToken {
     address public press_address    = 0x0;
     address public user_acq_address = 0x0;
     address public bounty_address   = 0x0;
-    bool private initialDistributionDone = false;
+    bool public initialDistributionDone = false;
 
     /**
     * @dev Setup the initial distribution addresses
@@ -104,10 +104,4 @@ contract KryllToken is TransferableToken {
         name = _name;
     }
 
-    /**
-    * @dev returns the distribution state
-    */
-    function isInitialDistributionDone() public constant returns (bool) {
-        return initialDistributionDone;
-    }
 }
