@@ -86,7 +86,7 @@ Team Vesting Smart Contract : https://etherscan.io/address/<todo>#code
 
 
 ## Audits
-The Kryll.io team asked [PlayitOpen](http://www.playitopen.org) and [SmartDec](https://smartcontracts.smartdec.net/) to review and audit the ERC20 KRL Token and KRL Vesting contracts. Here are the audits repports :
+The Kryll.io team asked [PlayitOpen](http://www.playitopen.org) and [SmartDec](https://smartcontracts.smartdec.net/) to review and audit the ERC20 KRL Token and KRL Vesting contracts. Here are the audits reports :
 
   - https://github.com/Cryptense/KryllToken/blob/master/audits/PlayitOpen_Audit.md from PlayitOpen
   - https://github.com/Cryptense/KryllToken/blob/master/audits/SmartDec_Audit.pdf from SmartDec
