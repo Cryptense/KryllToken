@@ -82,7 +82,7 @@ A vesting contract lock an amount of a specific token and given them progressive
   - Vesting duration **1 year**
   - Start Date **KRL Token emission date**
 
-The vested tokens were sent from [0xd32E4fb9e8191A97905Fb5Be9Aa27458cD0124C1](https://etherscan.io/address/0xd32E4fb9e8191A97905Fb5Be9Aa27458cD0124C1) address to the vesting smart contracts deployed by [0xeccf965700e4031c6cb244fee52b620a2965ae6f](https://etherscan.io/address/0xd32E4fb9e8191A97905Fb5Be9Aa27458cD0124C1).
+The vested tokens were sent from [0xd32E4fb9e8191A97905Fb5Be9Aa27458cD0124C1](https://etherscan.io/address/0xd32E4fb9e8191A97905Fb5Be9Aa27458cD0124C1) address to the vesting smart contracts deployed by [0xeccf965700e4031c6cb244fee52b620a2965ae6f](https://etherscan.io/address/0xeccf965700e4031c6cb244fee52b620a2965ae6f).
 
 ## Audits
 The Kryll.io team asked [PlayitOpen](http://www.playitopen.org) and [SmartDec](https://smartcontracts.smartdec.net/) to review and audit the ERC20 KRL Token and KRL Vesting contracts. Here are the audits reports :
