@@ -188,10 +188,19 @@ contract('Kryll Token', function (accounts) {
         })
 
         it('Whitelisted address can bypass the transfer lock', async () => {
+            await token.whitelist(advisors, { from: owner});            
             let bal0 = await toNum(token.balanceOf(bounty));
             await token.transfer(bounty, amount, { from: advisors})
             let bal1 = await toNum(token.balanceOf(bounty));
             assert.equal(toKRL(bal1), toKRL(bal0 + amount));
+        })
+
+        it('Restricted address cannot bypass the transfer lock anymore', async () => {
+            await token.restrict(advisors, { from: owner});
+            assert.isFalse(await token.whitelisted(advisors));
+            return assertRevert(async () => {
+                await token.transfer(bounty, amount, { from: advisors})
+            })
         })
 
         it('Should throw when approve is called and transfers are disabled', async () => {
@@ -238,6 +247,7 @@ contract('Kryll Token', function (accounts) {
         it('Can Approve, TransferFrom correctly if whitelisted and transfers are disabled', async () => {
             
             await token.restrictTransfert({ from: owner})   
+            await token.whitelist(advisors, { from: owner});            
             var allowance = await toNum(token.allowance(user_acq,advisors));
             assert.equal(allowance, 0);
          
