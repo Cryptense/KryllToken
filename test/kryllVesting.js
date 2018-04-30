@@ -183,7 +183,9 @@ contract('Kryll Vesting', function (accounts) {
         })
         
         it('Should revert token release when token transfers are disabled', async () => {
+            await token.restrict(vesting.address, { from: owner}); 
             await token.restrictTransfert({ from: owner});
+            assert.isFalse(await token.whitelisted(team_addrss));
             let releasable = await vesting.releasableAmount();
             assertRevert(async () => {await vesting.release({from: team_addrss})});
             assert.equal(toKRL(releasable), toKRL(await vesting.releasableAmount()));

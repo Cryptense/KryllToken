@@ -95,6 +95,8 @@ contract KryllToken is TransferableToken {
         transfer(bounty_address, BOUNTY);
         transfer(sale_address, SALE);
         initialDistributionDone = true;
+        whitelist(sale_address); // Auto whitelist sale address
+        whitelist(team_address); // Auto whitelist team address (vesting transfert)
     }
 
     /**
