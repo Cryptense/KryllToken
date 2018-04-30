@@ -38,7 +38,7 @@ ERC20 is a technical standard used for smart contracts on the Ethereum blockchai
   - Symbol **KRL**
   - Decimals **18**
 
-KRL ERC20 Smart Contract : https://etherscan.io/address/<todo>#code
+KRL ERC20 Smart Contract have : https://etherscan.io/address/0x464eBE77c293E473B48cFe96dDCf88fcF7bFDAC0#code
 
 
 ### Token repartition
