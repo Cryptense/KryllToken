@@ -49,7 +49,7 @@ KRL ERC20 Smart Contract have : https://etherscan.io/address/0x464eBE77c293E473B
   - Team **8640000 KRL** (vested)
   - Advisors **2880000 KRL**
   - Security Reserve **4320000 KRL**
-  - Press & Marketing **Press KRL**
+  - Press & Marketing **5040000 KRL**
   - User Acquisition **10080000 KRL**
   - Bounty (ICO & future) **720000 KRL**
 
